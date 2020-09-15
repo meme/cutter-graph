@@ -1,0 +1,43 @@
+{
+  "name": "cutter-graph",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "meme <meme@users.noreply.github.com>",
+  "license": "GPL-3.0",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc && cp build/GraphLayout.js build/GraphLayout.wasm dist/",
+    "build:emscripten": "emcmake cmake -Hnative/ -Bbuild/ -DCMAKE_BUILD_TYPE=Release && cmake --build build/ -j2",
+    "test": "jest",
+    "lint": "yarn standardx src/*.ts"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.13",
+    "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "@typescript-eslint/parser": "^4.1.1",
+    "jest": "^26.4.2",
+    "standardx": "^5.0.0",
+    "ts-jest": "^26.3.0",
+    "typescript": "^4.0.2"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  },
+  "eslintConfig": {
+    "rules": {
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "error"
+    }
+  },
+  "standardx": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint/eslint-plugin"
+    ]
+  }
+}
